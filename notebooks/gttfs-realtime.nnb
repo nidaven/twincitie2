@@ -1,0 +1,24 @@
+{
+    "cells": [
+        {
+            "language": "typescript",
+            "source": [
+                "var GtfsRealtimeBindings = require('gtfs-realtime-bindings');\nvar request = require('request');\n\nvar requestSettings = {\n  method: 'GET',\n  url: 'URL OF YOUR GTFS-REALTIME SOURCE GOES HERE',\n  encoding: null\n};\nrequest(requestSettings, function (error, response, body) {\n  if (!error && response.statusCode == 200) {\n    var feed = GtfsRealtimeBindings.transit_realtime.FeedMessage.decode(body);\n    feed.entity.forEach(function(entity) {\n      if (entity.trip_update) {\n        console.log(entity.trip_update);\n      }\n    });\n  }\n});"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "Error",
+                                "message": "Cannot find module 'gtfs-realtime-bindings'\nRequire stack:\n- <repl>",
+                                "stack": "    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1047:15)\n    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue [as _resolveFilename] (/home/daven/.vscode-server/extensions/donjayamanne.typescript-notebook-2.0.6/resources/scripts/node_modules/@cspotcode/source-map-support/source-map-support.js:679:30)\n    at Function.Module._load (node:internal/modules/cjs/loader:893:27)\n    at Function._._load (/home/daven/.vscode-server/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:115372)\n    at Module.require (node:internal/modules/cjs/loader:1113:19)\n    at require (node:internal/modules/cjs/helpers:103:18)\n    at <Cell 1> [1, 0]\n    at <Cell 1> [20, 46]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
