@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextThemesProvider } from '@/components/providers/NextThemesProvider'
 import './globals.css'
+import Navigation from '@/components/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,20 +18,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${inter.className}, container mx-auto flex min-h-screen flex-col px-[1rem] antialiased md:px-[2rem]`}>
         <NextThemesProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <Navigation />
           <main className="flex-grow">{children}</main>
           <footer className="py-4">
             <div
               className="group flex items-center justify-center gap-1 text-neutral-400 dark:text-neutral-600"
               aria-hidden={true}
             >
-              <span>navia: Born to Fly</span>
+              <span>navia: born to flyy</span>
             </div>
           </footer>
         </NextThemesProvider>

@@ -21,7 +21,7 @@ export const stops = pgTable('stops', {
 });
 
 export const routes = pgTable('routes', {
-  route_id: varchar('route_id', { length: 256 }),//.primaryKey(),
+  route_id: varchar('route_id', { length: 256 }).primaryKey(),
   agency_id: varchar('agency_id', { length: 256 }),//.references(() => agency.agency_id),
   route_short_name: varchar('route_short_name', { length: 50 }),
   route_long_name: text('route_long_name'),

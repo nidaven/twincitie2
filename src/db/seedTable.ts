@@ -1,7 +1,7 @@
 import { Readable } from 'stream';
 import csv from 'csv-parser';
 import { db } from './core';
-import { tables } from './seed';
+import { tables } from './seedDB';
 import { shapes } from './schema/gtfs_schedule';
 
 export async function seedTable(tableName: string, fileContent: Buffer) {

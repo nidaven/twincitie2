@@ -30,6 +30,7 @@ async function seedData({ url }: { url: string; }): Promise<void> {
 
 const GTFS_SCHEDULE_URL = `${process.env.TFWM_SCHEDULE_BASE_URL}?app_id=${process.env.TFWM_API_ID}&app_key=${process.env.TFWM_APP_KEY}`;
 console.log(`Downloading GTFS schedule from ${GTFS_SCHEDULE_URL}`);
+
 seedData({ url: GTFS_SCHEDULE_URL })
   .catch(console.error)
   .finally(() => {
